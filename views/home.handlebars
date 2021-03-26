@@ -1,5 +1,5 @@
-<ul class="post-list">
     {{#each posts as |post|}}
+<ul class="post-list">
     <div class="card">
   <header class="card-header">
     <p class="card-header-title">
@@ -17,10 +17,7 @@
       <time datetime="2016-1-1">{{format_date date_created}}</time>
     </div>
   </div>
-  {{#if loggedIn}}
   <footer class="card-footer">
-<button id="commentBtn" class="button is-black">Comment yourself!</button>  </footer>
-  {{/if}}
 </div>
-    {{/each}}
-</ul>
+</ul>   
+ {{/each}}

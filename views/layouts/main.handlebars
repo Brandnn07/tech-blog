@@ -28,8 +28,8 @@
             <a class="navbar-item" href="/">
               Home
             </a>
-              <a class="navbar-item" href="/profile">
-                Profile
+              <a class="navbar-item" href="/posting">
+                Make a post
               </a>
       
               </div>
@@ -39,11 +39,11 @@
             <div class="navbar-item">
               <div class="buttons">
                 {{#if loggedIn}}
-                <a class="button is-light" href="/logout">
+                <a class="button is-light" id="logout">
                   Logout
                 </a>
                 {{else}}
-                <a class="button is-primary" href="/login">
+                <a class="button is-primary" id="login">
                   <strong>Log in</strong>
                 </a> 
                 {{/if}}
