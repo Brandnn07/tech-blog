@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Post } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async, withAuth, (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: {
@@ -57,7 +57,7 @@ router.get('/profile', withAuth, async (req, res) => {
     }
   });
 
-router.get('post/:id', async, withAuth, (req, res) => {
+router.get('post/:id', withAuth, async  (req, res) => {
     try {
         const postData = await Post.findByPk({
             where: {
