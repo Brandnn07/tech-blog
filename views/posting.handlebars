@@ -1,0 +1,23 @@
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      {{post_title}} By: {{user.username}}
+    </p>
+    <button class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </header>
+  <div class="card-content">
+    <div class="content">
+        {{post_content}}
+      <time datetime="2016-1-1">{{format_date date_created}}</time>
+    </div>
+  </div>
+  {{#if loggedIn}}
+  <footer class="card-footer">
+    <a class="card-footer-item">Comment</a>
+  </footer>
+  {{/if}}
+</div>
