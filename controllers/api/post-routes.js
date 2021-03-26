@@ -5,12 +5,12 @@ const withAuth = require('../../utils/auth');
 router.post('/', withAuth, async (req,res) => {
     try {
         const newPost = await Post.create({
-            post_title: req.body.post_title,
-            post_content: req.body.post_content,
+            ...req.body,
             user_id: req.session.user_id
         });
         res.status(200).json(newPost);
     } catch(err) {
+        console.log(err, 'error is here!');
         res.status(400).json(err);
     }
 });
@@ -44,7 +44,8 @@ router.delete('/:id', withAuth, async (req,res) => {
         },
         {
             where: {
-                id: req.params.id
+                id: req.params.id,
+                user_id: req.session.user_id
             }
         })
         if(!postData) {

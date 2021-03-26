@@ -1,14 +1,15 @@
 async function logout() {
+    console.log('ok!');
     const response = await fetch('/api/users/logout', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' }
     });
 
-    if (response.ok) {
-        document.location.replace('/');
+    if (response.ok) {  
+        res.redirect('/login');
     } else {
         alert(response.statusText)
     }
 }
 
-document.querySelector('#logout').addEventListener('click', logout)
+document.getElementById('logout').addEventListener('click', logout)

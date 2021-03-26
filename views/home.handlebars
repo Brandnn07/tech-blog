@@ -1,18 +1,21 @@
-    {{#each posts as |post|}}
-<ul class="post-list">
+<h1 class="postHeader">List of posts:</h1>
+<container class="postContainer">
+  {{#each posts as |post|}}
+  <ul class="post-list">
     <div class="card">
-  <header class="card-header">
-    <p class="card-header-title">
-      {{post_title}} By: {{user.username}}
-    </p>
-  </header>
-  <div class="card-content">
-    <div class="content">
-        {{post_content}}
-      <time datetime="2016-1-1">{{format_date date_created}}</time>
+      <header class="card-header">
+        <p class="card-header-title">
+          ' {{post_title}} ' At: {{format_date date_created}}
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          {{post_content}}
+          <time datetime="2016-1-1"></time>
+        </div>
+      </div>
+      <footer class="card-footer">
     </div>
-  </div>
-  <footer class="card-footer">
-</div>
-</ul>   
- {{/each}}
+  </ul>
+  {{/each}}
+</container>

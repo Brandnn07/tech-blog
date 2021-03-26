@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Post } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll({
             include: [
@@ -34,14 +34,14 @@ router.get('/posting', withAuth, async (req, res) => {
   
       res.render('posting', {
         ...user,
-        logged_in: true
+        loggedIn: true
       });
     } catch (err) {
       res.status(500).json(err);
     }
   });
 
-router.get('post/:id', withAuth, async  (req, res) => {
+router.get('post/:id', async  (req, res) => {
     try {
         const postData = await Post.findByPk({
             where: {

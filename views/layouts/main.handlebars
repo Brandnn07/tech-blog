@@ -29,7 +29,10 @@
               Home
             </a>
               <a class="navbar-item" href="/posting">
-                Make a post
+                Profile
+              </a>
+              <a class="navbar-item" id="logout">
+                Logout
               </a>
       
               </div>
@@ -38,9 +41,6 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button is-primary" href="/login">
-                  <strong>Log in</strong>
-                </a> 
               </div>
             </div>
           </div>
@@ -49,8 +49,5 @@
       <main>
           {{{ body }}}
       </main>
-
-      {{#if loggedIn}}
-      <script src="../public/script/logout.js"></script>
-      {{/if}}
+      <script src="./script/logout.js"></script>
 </html>

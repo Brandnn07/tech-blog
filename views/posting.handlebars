@@ -1,17 +1,44 @@
 <div class="field">
-        <label class="label">Title of your post</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="What's the topic?">
+  <label class="label">Title of your post</label>
+  <div class="control">
+    <div class="control">
+      <textarea name="postitle" id="posttitle" class="textarea" placeholder="What's the topic?"></textarea>
+    </div>
+  </div>
+</div>
+<div class="field">
+  <label class="label">Whatcha wanna say?</label>
+  <div class="control">
+    <textarea name="content" id="content" class="textarea" placeholder="Pour your heart out!"></textarea>
+  </div>
+</div>
+<div class="field is-grouped">
+  <div class="control">
+    <button id="newPost" class="button is-link">Post</button>
+  </div>
+  <div>
+  {{#if posts.length}}
+<label class="label">Your posts</label>
+
+    {{#each posts as |post|}}
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          ' {{post_title}} ' At: {{format_date date_created}}
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          {{post_content}}
+          <time datetime="2016-1-1"></time>
         </div>
       </div>
-      <div class="field">
-        <label class="label">Whatcha wanna say?</label>
-        <div class="control">
-          <textarea class="textarea" placeholder="Pour your heart out!"></textarea>
-        </div>
+      <div>
+        <button id="deletePost" class="button is-danger">Delete post</button>
       </div>
-      <div class="field is-grouped">
-        <div class="control">
-          <button id="newPost" class="button is-link">Post</button>
-        </div>
-<script src="./script/posting.js"></script>
+      <footer class="card-footer">
+    </div>
+    {{/each}}
+    </div>
+    {{/if}}
+  <script src="./script/posting.js"></script>
