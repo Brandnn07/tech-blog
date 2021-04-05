@@ -21,10 +21,10 @@ const newFormHandler = async (event) => {
     }
   }
 };
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data.id')) {
-    console.log('does it know this?')
-    const id = event.target.getAttribute('data.id');
+const delButtonHandler = async function (event) {
+  console.log('ready');
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
 
     const response = await fetch(`/api/posts/${id}`, {
       method: 'DELETE',
@@ -33,17 +33,15 @@ const delButtonHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/posting');
     } else {
-      return;
+      console.log('didnt work m8');
     }
-  } else {
-    console.log('not working m8')
   }
 };
+
 
 document
   .getElementById('newPost')
   .addEventListener('click', newFormHandler);
-document
-  .getElementById('deletePost')
+document.querySelector('#deletePost')
   .addEventListener('click', delButtonHandler);
 

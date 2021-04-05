@@ -16,12 +16,13 @@
   <div class="control">
     <button id="newPost" class="button is-link">Post</button>
   </div>
+  </div>
   <div>
   {{#if posts.length}}
 <label class="label">Your posts</label>
 
     {{#each posts as |post|}}
-    <div class="card">
+    <div id="deletePost"  class="card">
       <header class="card-header">
         <p class="card-header-title">
           ' {{post_title}} ' At: {{format_date date_created}}
@@ -34,9 +35,8 @@
         </div>
       </div>
       <div>
-        <button id="deletePost" class="button is-danger">Delete post</button>
+        <button data-id="{{post.id}}" class="button is-danger">Delete post</button>
       </div>
-      <footer class="card-footer">
     </div>
     {{/each}}
     </div>

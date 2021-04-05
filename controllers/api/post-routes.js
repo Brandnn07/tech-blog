@@ -38,10 +38,7 @@ router.post('/', withAuth, async (req,res) => {
 
 router.delete('/:id', withAuth, async (req,res) => {
     try {
-        const postData = await Post.destroy({
-            post_title: req.body.post_title,
-            post_content: req.body.post_content
-        },
+        const postData = await Post.destroy(
         {
             where: {
                 id: req.params.id,
@@ -54,6 +51,7 @@ router.delete('/:id', withAuth, async (req,res) => {
         }
         res.status(200).json(postData);
     } catch(err) {
+        console.log(err)
         res.status(500).json(err);
     }
 });

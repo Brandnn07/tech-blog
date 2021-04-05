@@ -31,10 +31,11 @@
               <a class="navbar-item" href="/posting">
                 Profile
               </a>
+              {{#if loggedIn}}
               <a class="navbar-item" id="logout">
                 Logout
               </a>
-      
+              {{/if}}
               </div>
             </div>
      
@@ -49,5 +50,7 @@
       <main>
           {{{ body }}}
       </main>
+       {{#if loggedIn}}
       <script src="./script/logout.js"></script>
+       {{/if}}
 </html>
